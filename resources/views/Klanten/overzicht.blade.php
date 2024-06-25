@@ -10,6 +10,7 @@
 
 <body>
     <h1>Overzicht klanten</h1>
+    <a href="{{ route('home') }}">back</a>
 
     <a href="{{ route('klanten.nieuw') }}">Klant toevoegen</a>
 

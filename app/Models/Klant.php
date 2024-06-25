@@ -74,11 +74,13 @@ class Klant extends Model
             'babies' => $klant->babies,
         ]);
 
-        //Hier verwijderen we de oude relatie tussen allergenen en klanten
-        Klant::find($id)->allergenen()->detach();
 
         //Hier halen we de klant op uit de database
         $klant = Klant::find($id);
+
+        //Hier verwijderen we de oude relatie tussen allergenen en klanten
+        Klant::find($id)->allergenen()->detach();
+
         //Hier voegen we een relatie toe tussen allergenen en klanten
         $klant->allergenen()->attach($allergenen);
     }

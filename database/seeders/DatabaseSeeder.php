@@ -50,7 +50,8 @@ class DatabaseSeeder extends Seeder
             ProductenTableSeeder::class,
             VoedselpakketProductenTableSeeder::class,
             ProductAllergyTableSeeder::class,
-        // User::factory(10)->create();
+            // User::factory(10)->create();
+        ]);
 
         Klant::factory(10)->create();
 
@@ -126,6 +127,18 @@ class DatabaseSeeder extends Seeder
             [
                 'klant_id' => 10,
                 'allergie_id' => 5,
+            ],
+            [
+                'klant_id' => 13,
+                'allergie_id' => 2,
+            ],
+            [
+                'klant_id' => 14,
+                'allergie_id' => 3,
+            ],
+            [
+                'klant_id' => 15,
+                'allergie_id' => 4,
             ]
         ]);
     }
