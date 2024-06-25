@@ -51,7 +51,7 @@ class VoedselpakketController extends Controller
     /**
      * Toon het formulier voor het bewerken van de opgegeven resource.
      *
-     * @param  \App\Models\Voedselpakket  $voedselpakket
+     * @param  \App\Models\Voedselpakket  $voedselpakketten
      * @return \Illuminate\Http\Response
      */
     public function edit(Voedselpakket $voedselpakketten)
@@ -63,7 +63,7 @@ class VoedselpakketController extends Controller
      * Werk de opgegeven resource bij in opslag.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Voedselpakket  $voedselpakket
+     * @param  \App\Models\Voedselpakket  $voedselpakketten
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Voedselpakket $voedselpakket)
@@ -83,7 +83,7 @@ class VoedselpakketController extends Controller
     /**
      * Verwijder de opgegeven resource uit opslag.
      *
-     * @param  \App\Models\Voedselpakket  $voedselpakket
+     * @param  \App\Models\Voedselpakket  $voedselpakketten
      * @return \Illuminate\Http\Response
      */
     public function destroy(Voedselpakket $voedselpakketten)
