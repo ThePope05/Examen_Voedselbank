@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Leverancier;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class LeverancierController extends Controller
 {
@@ -36,19 +37,28 @@ class LeverancierController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'bedrijfsnaam' => 'required|string|max:255',
-            'adres' => 'required|string|max:255',
-            'contactpersoon' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:leveranciers',
-            'telefoonnummer' => 'required|string|max:20',
-        ]);
-
-        Leverancier::create($request->all());
-
-        return redirect()->route('leveranciers.index')
-                         ->with('success', 'Leverancier succesvol aangemaakt.');
+        try {
+            $request->validate([
+                'bedrijfsnaam' => 'required|string|max:255',
+                'adres' => 'required|string|max:255',
+                'contactpersoon' => 'required|string|max:255',
+                'email' => 'required|email|max:255|unique:leveranciers',
+                'telefoonnummer' => 'required|string|max:20',
+            ]);
+        
+            Leverancier::create($request->all());
+        
+            return redirect()->route('leveranciers.index')
+                             ->with('success', 'Leverancier succesvol aangemaakt.');
+        } catch (\Exception $e) {
+            // Log de fout bijvoorbeeld
+            Log::error('Fout bij het aanmaken van een leverancier: ' . $e->getMessage());
+            
+            // Geef een foutmelding aan de gebruiker terug
+            return back()->withInput()->withErrors(['error' => 'Er is een fout opgetreden bij het aanmaken van de leverancier. Probeer het opnieuw.']);
+        }
     }
+
 
     /**
      * Toon de opgegeven resource.
