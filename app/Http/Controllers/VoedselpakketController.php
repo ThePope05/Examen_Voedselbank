@@ -39,7 +39,7 @@ class VoedselpakketController extends Controller
         $request->validate([
             'klant_id' => 'required|int',
             'gemaakt_door_id' => 'required|int',
-            'uitgiftedatum' => 'date',
+            'uitgiftedatum' => 'required|date',
         ]);
 
         Voedselpakket::create($request->all());
@@ -63,21 +63,26 @@ class VoedselpakketController extends Controller
      * Werk de opgegeven resource bij in opslag.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Voedselpakket  $voedselpakketten
+     * @param  \App\Models\Voedselpakket  $voedselpakket
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Voedselpakket $voedselpakket)
+    public function update(Request $request, Voedselpakket $voedselpakketten)
     {
-        $request->validate([
-            'klant_id' => 'required|int',
-            'gemaakt_door_id' => 'required|int',
-            'uitgiftedatum' => 'date',
-        ]);
+        try {
+            $request->validate([
+                'klant_id' => 'required|int',
+                'gemaakt_door_id' => 'required|int',
+                'uitgiftedatum' => 'required|date',
+            ]);
 
-        $voedselpakket->update($request->all());
+            $voedselpakketten->update($request->all());
 
-        return redirect()->route('voedselpakket.index')
-            ->with('success', 'Voedselpakket succesvol bijgewerkt.');
+            return redirect()->route('voedselpakket.index')
+                ->with('success', 'Voedselpakket succesvol bijgewerkt.');
+        } catch (\Exception $e) {
+            return redirect()->back()
+                ->with('error', 'Er is een fout opgetreden bij het bijwerken van het voedselpakket: ' . $e->getMessage());
+        }
     }
 
     /**
