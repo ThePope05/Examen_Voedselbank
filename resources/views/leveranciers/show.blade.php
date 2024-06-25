@@ -2,29 +2,30 @@
 
 @section('content')
 <div class="container">
-    <h1>Leverancier Details</h1>
+    <h1>Leverancier Details</h1> <!-- Titel van de pagina voor leverancier details -->
     <table class="table">
         <tr>
-            <th>Bedrijfsnaam</th>
-            <td>{{ $leverancier->bedrijfsnaam }}</td>
+            <th>Bedrijfsnaam</th> <!-- Kolomkop voor Bedrijfsnaam -->
+            <td>{{ $leverancier->bedrijfsnaam }}</td> <!-- Weergave van Bedrijfsnaam -->
         </tr>
         <tr>
-            <th>Adres</th>
-            <td>{{ $leverancier->adres }}</td>
+            <th>Adres</th> <!-- Kolomkop voor Adres -->
+            <td>{{ $leverancier->adres }}</td> <!-- Weergave van Adres -->
         </tr>
         <tr>
-            <th>Contactpersoon</th>
-            <td>{{ $leverancier->contactpersoon }}</td>
+            <th>Contactpersoon</th> <!-- Kolomkop voor Contactpersoon -->
+            <td>{{ $leverancier->contactpersoon }}</td> <!-- Weergave van Contactpersoon -->
         </tr>
         <tr>
-            <th>Email</th>
-            <td>{{ $leverancier->email }}</td>
+            <th>Email</th> <!-- Kolomkop voor Email -->
+            <td>{{ $leverancier->email }}</td> <!-- Weergave van Email -->
         </tr>
         <tr>
-            <th>Telefoonnummer</th>
-            <td>{{ $leverancier->telefoonnummer }}</td>
+            <th>Telefoonnummer</th> <!-- Kolomkop voor Telefoonnummer -->
+            <td>{{ $leverancier->telefoonnummer }}</td> <!-- Weergave van Telefoonnummer -->
         </tr>
     </table>
     <a href="{{ route('leveranciers.index') }}" class="btn btn-secondary">Terug</a>
+    <!-- Knop om terug te gaan naar de lijst van leveranciers -->
 </div>
 @endsection
