@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('product_allergie', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->constrained('producten');
-            $table->foreignId('allergie_id')->constrained('allergenen');
-            $table->timestamps(6);
+            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('allergie_id')->default(1); // Example default value
+            $table->timestamps();
         });
     }
 
