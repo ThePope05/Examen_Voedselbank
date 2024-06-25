@@ -11,10 +11,16 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- Styles -->
     <style>
-        /* Your custom styles here */
+        .table, td, th {
+            margin-bottom: 1rem;
+            color: #212529;
+            border-collapse: collapse;
+            border: 1px solid black
+        }
     </style>
 </head>
 
