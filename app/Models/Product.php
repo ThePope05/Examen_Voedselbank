@@ -31,7 +31,7 @@ class Product extends Model
 
     public function allergenen()
     {
-        return $this->belongsToMany(Allergy::class, 'product_allergenen', 'product_id', 'allergenen_id');
+        return $this->belongsToMany(Allergy::class, 'product_allergie', 'product_id', 'allergenen_id');
     }
 
     public function voedselpakketten()

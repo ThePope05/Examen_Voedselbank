@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('voedselpakketten', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('klant_id')->constrained('klanten');
-            $table->foreignId('gemaakt_door_id')->constrained('gebruikers');
+            $table->unsignedBigInteger('klant_id');
             $table->date('uitgiftedatum');
-            $table->timestamps(6);
+            $table->unsignedBigInteger('gemaakt_door_id')->nullable()->default(1); // Example default value
+            $table->timestamps();
         });
     }
 
