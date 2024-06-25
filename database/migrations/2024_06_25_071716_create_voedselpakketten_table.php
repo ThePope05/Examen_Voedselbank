@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('voedselpakketten', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('klant_id');
-            $table->date('uitgiftedatum');
+            $table->date('uitgiftedatum')->nullable();
             $table->unsignedBigInteger('gemaakt_door_id')->nullable()->default(1); // Example default value
             $table->timestamps();
         });
