@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KlantController;
+use App\Models\Allergy;
 use App\Models\Klant;
 
 Route::get('/', function () {
@@ -19,9 +20,11 @@ Route::get('/', function () {
     return view('klanten.overzicht', compact('klanten'));
 })->name('klanten.overzicht');
 Route::get('/nieuw', function () {
-    return view('klanten.formulier', ['klant' => null]);
+    $allergenen = Allergy::all();
+    return view('klanten.formulier', ['klant' => null, 'allergenen' => $allergenen]);
 })->name('klanten.nieuw');
 Route::get('/bewerk/{id}', function ($id) {
     $klant = Klant::find($id);
-    return view('klanten.formulier', ['klant' => $klant]);
+    $allergenen = Allergy::all();
+    return view('klanten.formulier', ['klant' => $klant, 'allergenen' => $allergenen]);
 })->name('klanten.bewerk');
