@@ -37,12 +37,18 @@
 
 <body>
     <h1>Voorraad Overzicht / Verwijderen</h1>
+
+    <!-- Succesbericht weergeven als aanwezig -->
     @if (session('success'))
     <div class="success-message" id="successMessage">
         {{ session('success') }}
     </div>
     @endif
-    <a href="{{ route('voorraad.create') }}" class="create-button">Create New Product</a>
+
+    <!-- Knop om een nieuw product toe te voegen -->
+    <a href="{{ route('voorraad.create') }}" class="create-button">Nieuw product toevoegen</a>
+
+    <!-- Tabel met voorraadgegevens -->
     <table>
         <thead>
             <tr>
@@ -62,18 +68,21 @@
                 <td>{{ $item->voorraad }}</td>
                 <td>{{ $item->leverancier->bedrijfsnaam }}</td>
                 <td><a href="{{ route('voorraad.edit', $item->id) }}">✏️</a></td>
-                <td>
+                < <td>
+                    <!-- Formulier om het product te verwijderen -->
                     <form id="delete-form-{{ $item->id }}" action="{{ route('voorraad.destroy', $item->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
+                        <!-- Button om de delete-actie te bevestigen -->
                         <button type="button" onclick="confirmDelete('{{ $item->id }}')">❌</button>
                     </form>
-                </td>
+                    </td>
             </tr>
             @endforeach
         </tbody>
     </table>
 
+    <!-- JavaScript voor het verbergen van het succesbericht na 3 seconden -->
     <script>
         setTimeout(function() {
             var successMessage = document.getElementById('successMessage');
@@ -82,8 +91,10 @@
             }
         }, 3000);
 
+        // Functie om te bevestigen dat een product verwijderd moet worden
         function confirmDelete(itemId) {
-            if (confirm('Are you sure you want to delete this product?')) {
+            if (confirm('Weet je zeker dat je dit product wilt verwijderen?')) {
+                // Verzend het delete-formulier voor het opgegeven product
                 document.getElementById('delete-form-' + itemId).submit();
             }
         }
