@@ -58,15 +58,15 @@
             @foreach ($items as $item)
             <tr>
                 <td>{{ $item->naam }}</td>
-                <td>{{ $item->categorie->naam }}</td> {{-- Toegang tot gerelateerde categorie naam --}}
+                <td>{{ $item->categorie->naam }}</td>
                 <td>{{ $item->voorraad }}</td>
-                <td>{{ $item->leverancier->bedrijfsnaam }}</td> {{-- Toegang tot gerelateerde leverancier bedrijfsnaam --}}
+                <td>{{ $item->leverancier->bedrijfsnaam }}</td>
                 <td><a href="{{ route('voorraad.edit', $item->id) }}">✏️</a></td>
                 <td>
-                    <form action="{{ route('voorraad.destroy', $item->id) }}" method="POST">
+                    <form id="delete-form-{{ $item->id }}" action="{{ route('voorraad.destroy', $item->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit">❌</button>
+                        <button type="button" onclick="confirmDelete('{{ $item->id }}')">❌</button>
                     </form>
                 </td>
             </tr>
@@ -81,6 +81,12 @@
                 successMessage.style.display = 'none';
             }
         }, 3000);
+
+        function confirmDelete(itemId) {
+            if (confirm('Are you sure you want to delete this product?')) {
+                document.getElementById('delete-form-' + itemId).submit();
+            }
+        }
     </script>
 </body>
 
