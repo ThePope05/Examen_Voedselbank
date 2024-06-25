@@ -26,7 +26,7 @@
                 <td>{{ $leverancier->email }}</td> <!-- Weergave van Email -->
                 <td>{{ $leverancier->telefoonnummer }}</td> <!-- Weergave van Telefoonnummer -->
                 <td>
-                    <a href="{{ route('leveranciers.show', $leverancier->id) }}" class="btn btn-info">Bekijk</a>
+                    <!-- <a href="{{ route('leveranciers.show', $leverancier->id) }}" class="btn btn-info">Bekijk</a> -->
                     <!-- Knop om details van de leverancier te bekijken -->
                     <a href="{{ route('leveranciers.edit', $leverancier->id) }}" class="btn btn-warning">Bewerk</a>
                     <!-- Knop om de leverancier te bewerken -->
