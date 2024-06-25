@@ -44,7 +44,7 @@
         {{ session('success') }}
     </div>
     @endif
-
+    <a href="{{ route('home') }}">back</a>
     <!-- Knop om een nieuw product toe te voegen -->
     <a href="{{ route('voorraad.create') }}" class="create-button">Nieuw product toevoegen</a>
 

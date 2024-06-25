@@ -10,6 +10,7 @@
 <body>
     <a href="{{ route('voorraad.index') }}">Overzicht Voorraad</a>
     <a href="{{ route('leveranciers.index') }}">Overzicht Leveranciers</a>
+    <a href="{{ route('voedselpakket.index') }}">Overzicht Voedselpakket</a>
 </body>
 
 </html>

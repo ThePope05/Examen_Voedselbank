@@ -8,6 +8,16 @@ use Database\Seeders\ProductenTableSeeder;
 use Database\Seeders\VoedselpakkettenTableSeeder;
 use Database\Seeders\VoedselpakketProductenTableSeeder;
 use Database\Seeders\ProductAllergyTableSeeder;
+use Database\Seeders\GebruikersSeeder;
+use Database\Seeders\LeveranciersSeeder;
+use Database\Seeders\CategorieSeeder;
+use Database\Seeders\ProductenSeeder;
+use Database\Seeders\KlantenSeeder;
+use Database\Seeders\VoedselpakkettenSeeder;
+use Database\Seeders\VoedselpakketProductenSeeder;
+use Database\Seeders\AllergenenSeeder;
+use Database\Seeders\KlantenAllergenenSeeder;
+use Database\Seeders\ProductAllergieSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,9 +37,6 @@ class DatabaseSeeder extends Seeder
             AllergenenSeeder::class,
             KlantenAllergenenSeeder::class,
             ProductAllergieSeeder::class,
-    public function run()
-    {
-        $this->call([
             CategorieTableSeeder::class,
             LeveranciersTableSeeder::class,
             KlantenTableSeeder::class,

@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     @if (session('success'))
-        <div class="success-message" id="successMessage">
-            {{ session('success') }}
-        </div>
+    <div class="success-message" id="successMessage">
+        {{ session('success') }}
+    </div>
     @endif
     <script>
         // JavaScript to hide the success message after 3 seconds
@@ -17,6 +17,7 @@
         }, 3000); // 3000 milliseconds = 3 seconds
     </script>
     <h1>Leveranciers</h1> <!-- Titel van de pagina voor leveranciers -->
+    <a href="{{ route('home') }}">back</a>
     <a href="{{ route('leveranciers.create') }}" class="btn btn-primary">Nieuwe Leverancier</a>
     <!-- Knop om een nieuwe leverancier toe te voegen -->
 
