@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('klant_id')->constrained('klanten');
             $table->foreignId('gemaakt_door_id')->constrained('gebruikers');
-            $table->date('uitgiftedatum');
+            $table->date('uitgiftedatum')->nullable();
             $table->timestamps(6);
         });
     }
