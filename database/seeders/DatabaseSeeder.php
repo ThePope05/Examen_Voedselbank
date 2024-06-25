@@ -41,7 +41,6 @@ class DatabaseSeeder extends Seeder
             LeveranciersTableSeeder::class,
             KlantenTableSeeder::class,
             ProductenTableSeeder::class,
-            VoedselpakkettenTableSeeder::class,
             VoedselpakketProductenTableSeeder::class,
             ProductAllergyTableSeeder::class,
         ]);
