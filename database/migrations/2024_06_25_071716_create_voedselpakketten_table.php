@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('voedselpakketten', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('klant_id')->constrained('klanten');
+            $table->foreignId('klant_id')->constrained('klanten')->onDelete('cascade');
             $table->foreignId('gemaakt_door_id')->constrained('gebruikers')->default(1);
             $table->date('uitgiftedatum')->nullable();
             $table->timestamps();

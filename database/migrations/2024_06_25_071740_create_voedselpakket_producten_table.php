@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('voedselpakket_producten', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('voedselpakket_id')->constrained('voedselpakketten');
+            $table->foreignId('voedselpakket_id')->constrained('voedselpakketten')->onDelete('cascade');
             $table->foreignId('product_id')->constrained('producten');
             $table->integer('hoeveelheid');
             $table->timestamps(6);

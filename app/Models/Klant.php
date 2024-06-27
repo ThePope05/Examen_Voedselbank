@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Nette\Utils\Arrays;
+use Psy\Readline\Hoa\Console;
 
 class Klant extends Model
 {
